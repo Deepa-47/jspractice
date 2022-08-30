@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Check box</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+	<div>
+        <input type="text" placeholder="Enter name" id="name"/><br/>
+        <input type="number" placeholder="Enter roll" id="roll"/><br/>
+   
+		<input type="checkbox" name="check" value="hello" onclick="checkboxHandler(this)">
+		<label>Hello</label><br/>
+		<input type="checkbox" name="check" value="world" onclick="checkboxHandler(this)">
+		<label>world</label>
+        <button type="submit" id="submit_btn" onclick="print()">Submit</button>
+        <button type="reset" id="reset_btn" onclick="reset()">Reset</button> 
+	</div>
+	<script type="text/javascript">
+		var checkboxes = document.getElementsByName('check')
+        function print(){
+            let name=document.getElementById("name").value;
+            let roll=document.getElementById("roll").value;
+            let checkboxdata="";
+		    checkboxes.forEach((item) => {
+		        if(item.checked){
+		        	checkboxdata=item.value;
+		        }
+		    })
+			console.log(name+" "+roll+" "+checkboxdata);
+		}
+		function checkboxHandler(checkbox){
+			
+		    checkboxes.forEach((item) => {
+		        if (item !== checkbox) item.checked = false
+		    })
+		    
+		}
+	</script>
+</body>
+</html>
